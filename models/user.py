@@ -16,11 +16,6 @@ class User(Base):
     """
     
     username : Mapped[str]
-    password : Mapped[bytes]
+    password : Mapped[str]
     email : Mapped[str]
-    
-    @connection
-    @classmethod
-    def create(cls, session: Session,**data):
-        ...
         

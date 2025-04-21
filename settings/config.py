@@ -10,6 +10,9 @@ class Settings(BaseSettings):
     PG_PORT: int
     PG_USER: str
     PG_PASSWORD: str
+    
+    API_HOST: str
+    API_PORT: int
 
     model_config = SettingsConfigDict(
         env_file=ROOT_PATH / ".env", env_file_encoding="utf-8"

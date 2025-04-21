@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Annotated
+from typing import Annotated, Self
 from sqlalchemy import create_engine, func, select
 from sqlalchemy.orm import (
     DeclarativeBase,
@@ -49,21 +49,44 @@ class Base(DeclarativeBase):
     
     @classmethod
     @connection
-    def get(cls, session: Session = None, **creterias):
+    def get(cls, session: Session = None, **creterias) -> None|Self:
+        """Возвращает искомый объет базы данных по переданным creterias
+
+        Args:
+            session (Session, optional): Сессия запроса(подставляется автоматически). Defaults to None.
+        Returns:
+            None|Self: Объект или None
+        """
         query = select(cls).filter_by(**creterias)
         rows = session.execute(query)
         return rows.scalar_one_or_none()
      
     @classmethod
     @connection
-    def get_all_by_creterias(cls, session: Session = None, **creterias):
+    def get_all_by_creterias(cls, session: Session = None, **creterias) -> list[Self]:
+        """Возвращает искомые объеты базы данных по переданным creterias
+
+        Args:
+            session (Session, optional): Сессия запроса(подставляется автоматически). Defaults to None.
+
+        Returns:
+            list[Self]: Список найденных объектов
+        """
         query = select(cls).filter_by(**creterias)
         rows = session.execute(query)
         return rows.scalars().all()
     
     @classmethod
     @connection
-    def get_all(cls, session: Session = None):
+    def get_all(cls, session: Session = None) -> list[Self]:
+        """Выводит все строки таблицы
+
+        Args:
+            session (Session, optional): Сессия запроса(подставляется автоматически). Defaults to None.
+
+        Returns:
+            list[Self]: _description_
+        """
         query = select(cls)
         rows = session.execute(query)
         return rows.scalars().all()
@@ -74,7 +97,15 @@ class Base(DeclarativeBase):
         cls,
         session: Session = None,
         **data,
-    ):
+    ) -> Self:
+        """Создание новой строки в БД, по переданным data
+
+        Args:
+            session (Session, optional): Сессия запроса(подставляется автоматически). Defaults to None.
+
+        Returns:
+            Self
+        """
         new_row = cls(**data)
         session.add(new_row)
         session.commit()
@@ -86,7 +117,16 @@ class Base(DeclarativeBase):
         cls,
         datas: list[dict],
         session: Session = None,
-    ):
+    ) -> list[Self]:
+        """Создает несколько объектов за раз 
+
+        Args:
+            datas (list[dict]): Список данных для каждой строки БД
+            session (Session, optional): Сессия запроса(подставляется автоматически). Defaults to None.
+
+        Returns:
+            list[Self]
+        """
         new_rows = [cls(**data) for data in datas]
         session.add_all(new_rows)
         session.commit()
@@ -99,7 +139,19 @@ class Base(DeclarativeBase):
         id: int,
         session: Session = None,
         **data
-    ):
+    ) -> Self:
+        """Обновление данных для одного объекта
+
+        Args:
+            id (int): Идентификатор объекта
+            session (Session, optional): Сессия запроса(подставляется автоматически). Defaults to None.
+
+        Raises:
+            ValueError: если нет колонки или строки с переданным id
+
+        Returns:
+            Self
+        """
         query = select(cls).where(cls.id == id).with_for_update()
         rows = session.execute(query)
         concrete_row = rows.scalar_one_or_none()
@@ -123,7 +175,16 @@ class Base(DeclarativeBase):
         cls,
         id: int,
         session: Session = None,
-    ): 
+    ) -> bool: 
+        """Удаление строки данных
+
+        Args:
+            id (int): Идентификатор объекта(по полю id)
+            session (Session, optional): Сессия запроса(подставляется автоматически). Defaults to None.
+
+        Returns:
+            bool 
+        """
         query = select(cls).where(cls.id == id)
         rows = session.execute(query)
         row = rows.scalar_one_or_none()

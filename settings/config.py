@@ -25,5 +25,11 @@ class Settings(BaseSettings):
             case "async":
                 return f"postgresql+asyncpg://{self.PG_USER}:{self.PG_PASSWORD}@{self.PG_HOST}:{self.PG_PORT}/{self.PG_DB}"
 
+    def get_db_url_sqlite(self, db_type: str = "sync"):
+        match db_type:
+            case "sync":
+                return f"sqlite:///data/main.db"
+            case "async":
+                return f"sqlite+aiosqlite:///data/main.db"
 
 settings = Settings()

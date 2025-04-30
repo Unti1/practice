@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>794</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Название программы</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(81, 0, 135, 255), stop:0.427447 rgba(41, 61, 132, 235), stop:1 rgba(155, 79, 165, 255));
+font-family: Roboto;</string>
+   </property>
+   <widget class="QTableView" name="OperationsData">
+    <property name="geometry">
+     <rect>
+      <x>116</x>
+      <y>0</y>
+      <width>411</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableView {
+background-color: rgba(0,0,0,60);
+border: 1px solid rgba(0,0,0,80);
+border-radius: 10px;
+}
+
+QTableView:section {
+background-color: rgb(53,53,53);
+border: none;
+height: 50px;
+font-size: 14pt;
+}
+
+QTableView:item {
+border-style: none;
+border-botton: rgba(255,255,255,50);
+}
+
+QTableView:item:select {
+border: none;
+color: rgb(255,255,255,);
+background-color: rgba(255,255,255, 50);
+}
+
+
+</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="UserDataArea">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>110</y>
+      <width>231</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0, 40);
+border: none;
+</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="role_data">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(0,0,0, 40);
+border: none;
+</string>
+       </property>
+       <property name="text">
+        <string>:Role:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="phone_data">
+       <property name="text">
+        <string>:phone:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="name_data">
+       <property name="text">
+        <string>:name:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="suname_data">
+       <property name="text">
+        <string>:suname:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="about_data">
+       <property name="text">
+        <string>:about:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="datebd_data">
+       <property name="text">
+        <string>:datebirthday:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="ControlFrame">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>1</y>
+      <width>111</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0, 40);
+border: none;
+</string>
+    </property>
+    <layout class="QVBoxLayout" name="ControlButtonsArea">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="add_row">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-color: rgba(0,0,0, 40);
+border: 1px  solid rgba(0,0,0,70);
+border-radius: 5px;
+height: 50px;
+}
+
+QPushButton:hover {
+background-color: rgba(255,255,255,50);
+}
+
+QPushButton:pressed {
+background-color:  rgba(255,255,255,80);
+}</string>
+       </property>
+       <property name="text">
+        <string>Добавить</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res-rc.qrc">
+         <normaloff>:/icons/icons/add.svg</normaloff>:/icons/icons/add.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="upd_row">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-color: rgba(0,0,0, 40);
+border: 1px  solid rgba(0,0,0,70);
+border-radius: 5px;
+height: 50px;
+}
+
+QPushButton:hover {
+background-color: rgba(255,255,255,50);
+}
+
+QPushButton:pressed {
+background-color:  rgba(255,255,255,80);
+}</string>
+       </property>
+       <property name="text">
+        <string>Обновить</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res-rc.qrc">
+         <normaloff>:/icons/icons/edit.svg</normaloff>:/icons/icons/edit.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="del_row">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-color: rgba(0,0,0, 40);
+border: 1px  solid rgba(0,0,0,70);
+border-radius: 5px;
+height: 50px;
+}
+
+QPushButton:hover {
+background-color: rgba(255,255,255,50);
+}
+
+QPushButton:pressed {
+background-color:  rgba(255,255,255,80);
+}</string>
+       </property>
+       <property name="text">
+        <string>Удалить</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res-rc.qrc">
+         <normaloff>:/icons/icons/delete.svg</normaloff>:/icons/icons/delete.svg</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="WalletFrame">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>380</y>
+      <width>241</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0, 40);
+border: none;
+</string>
+    </property>
+    <layout class="QVBoxLayout" name="UserBalance">
+     <property name="spacing">
+      <number>3</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="CurrentWallet">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="WalletText">
+          <property name="text">
+           <string>Текущий счёт</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="EarningText">
+       <property name="text">
+        <string>Заработано</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="EarningArea">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="icon_uptrand">
+          <property name="maximumSize">
+           <size>
+            <width>24</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="res-rc.qrc">:/icons/icons/trending_up.svg</pixmap>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="value_uptrand">
+          <property name="text">
+           <string>income</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="OutcomeText">
+       <property name="text">
+        <string>Заработано</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="OutcomeWalleArea">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="icon_downtrand">
+          <property name="maximumSize">
+           <size>
+            <width>24</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="res-rc.qrc">:/icons/icons/trending_down.svg</pixmap>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="value_downtrand">
+          <property name="text">
+           <string>outcome</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="AuthFrame">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>0</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: none;
+border: none;
+</string>
+    </property>
+    <layout class="QHBoxLayout" name="auth_buttons">
+     <property name="spacing">
+      <number>1</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="reg_button">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-color: rgba(0,0,0, 40);
+border: 1px  solid rgba(0,0,0,70);
+border-radius: 5px;
+height: 50px;
+}
+
+QPushButton:hover {
+background-color: rgba(255,255,255,50);
+}
+
+QPushButton:pressed {
+background-color:  rgba(255,255,255,80);
+}</string>
+       </property>
+       <property name="text">
+        <string>Регистрация</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res-rc.qrc">
+         <normaloff>:/icons/icons/person_add.svg</normaloff>:/icons/icons/person_add.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="login_button">
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+background-color: rgba(0,0,0, 40);
+border: 1px  solid rgba(0,0,0,70);
+border-radius: 5px;
+height: 50px;
+}
+
+QPushButton:hover {
+background-color: rgba(255,255,255,50);
+}
+
+QPushButton:pressed {
+background-color:  rgba(255,255,255,80);
+}</string>
+       </property>
+       <property name="text">
+        <string>Войти</string>
+       </property>
+       <property name="icon">
+        <iconset resource="res-rc.qrc">
+         <normaloff>:/icons/icons/login.svg</normaloff>:/icons/icons/login.svg</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="UserDataLabel">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>70</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0,0,0, 40);
+border: none;
+</string>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label_15">
+       <property name="maximumSize">
+        <size>
+         <width>24</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255,255,255,50);</string>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="res-rc.qrc">:/icons/icons/person.svg</pixmap>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_14">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(0,0,0, 40);
+border: none;
+</string>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Raised</enum>
+       </property>
+       <property name="text">
+        <string>Данные</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="SupportButton">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>554</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color: rgba(0,0,0, 40);
+border: 1px  solid rgba(0,0,0,70);
+border-radius: 5px;
+height: 50px;
+}
+
+QPushButton:hover {
+background-color: rgba(255,255,255,50);
+}
+
+QPushButton:pressed {
+background-color:  rgba(255,255,255,80);
+}</string>
+    </property>
+    <property name="text">
+     <string>Поддержка</string>
+    </property>
+    <property name="icon">
+     <iconset resource="res-rc.qrc">
+      <normaloff>:/icons/icons/support_agent.svg</normaloff>:/icons/icons/support_agent.svg</iconset>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="res-rc.qrc"/>
+ </resources>
+ <connections/>
+</ui>

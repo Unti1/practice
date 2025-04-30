@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/support_agent.svg</file>
+    <file>icons/person_add.svg</file>
+    <file>icons/account.svg</file>
+    <file>icons/add.svg</file>
+    <file>icons/delete.svg</file>
+    <file>icons/edit.svg</file>
+    <file>icons/login.svg</file>
+    <file>icons/logout.svg</file>
+    <file>icons/payments.svg</file>
+    <file>icons/person.svg</file>
+    <file>icons/trending_down.svg</file>
+    <file>icons/trending_up.svg</file>
+    <file>icons/wallet.svg</file>
+  </qresource>
+</RCC>

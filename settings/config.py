@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     ROOT_PATH: Path = Path(__file__).parent.parent
-
+    
     PG_DB: str
     PG_HOST: str
     PG_PORT: int

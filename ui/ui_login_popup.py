@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QLabel,
     QLineEdit, QPushButton, QSizePolicy, QWidget)
 
-class Ui_Dialog(object):
+class Ui_LoginPopup(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
@@ -51,7 +51,8 @@ class Ui_Dialog(object):
         self.error_msg = QLabel(self.mainframe)
         self.error_msg.setObjectName(u"error_msg")
         self.error_msg.setGeometry(QRect(10, 100, 331, 31))
-        self.error_msg.setStyleSheet(u"background-color: none;")
+        self.error_msg.setStyleSheet(u"background-color: none; font-size: 9px; color: red;")
+        self.error_msg.hide()
         self.confim_button = QPushButton(self.mainframe)
         self.confim_button.setObjectName(u"confim_button")
         self.confim_button.setGeometry(QRect(40, 140, 271, 41))
@@ -76,7 +77,6 @@ class Ui_Dialog(object):
         self.username_input = QLineEdit(self.mainframe)
         self.username_input.setObjectName(u"username_input")
         self.username_input.setGeometry(QRect(140, 40, 201, 21))
-        self.username_input.setEchoMode(QLineEdit.EchoMode.Password)
 
         self.retranslateUi(Dialog)
 

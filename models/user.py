@@ -15,6 +15,10 @@ class User(Base):
         default=RoleEnum.DEMO, server_default=text("'DEMO'")
     )
 
+    userbalances: Mapped["UserBalance"] = relationship(
+        "UserBalance", back_populates="user", cascade="all, delete-orphan"
+    )
+
     profile: Mapped["Profile"] = relationship(
         "Profile",
         back_populates="user",
@@ -50,9 +54,9 @@ class User(Base):
         new_user = cls(username=username, password=password, email=email, role=role)
         session.add(new_user)
         session.flush()
-        
-        new_profile = Profile(user_id=new_user.id, **kwargs.get('profile', {}))
+
+        new_profile = Profile(user_id=new_user.id, **kwargs.get("profile", {}))
         session.add(new_profile)
         session.commit()
-        
+
         return new_user
